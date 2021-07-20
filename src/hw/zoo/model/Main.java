@@ -1,11 +1,9 @@
 package hw.zoo.model;
 
 import hw.zoo.ParserCommand;
-import hw.zoo.Zoo;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {

@@ -1,10 +1,8 @@
 package hw.zoo;
 import hw.zoo.model.*;
 
-import java.io.Console;
-import java.io.StringReader;
+
 import java.lang.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,8 +33,8 @@ public class ParserCommand {
 
 
     public void log( List<InhibitionLog> inhibitionLogs){
-        for(int i = 0; i < inhibitionLogs.size(); i++){
-            System.out.print(inhibitionLogs.get(i));
+        for (InhibitionLog inhibitionLog : inhibitionLogs) {
+            System.out.print(inhibitionLog);
         }
     }
 

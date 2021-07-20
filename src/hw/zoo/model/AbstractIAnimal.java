@@ -18,27 +18,4 @@ public class AbstractIAnimal implements IAnimal {
     public Species getSpecies() {
         return species;
     }
-
-    /*public String getSpeciesName() {
-        String string = "re";
-
-        switch (species) {
-            case LEON:
-                string = "LEON";
-                break;
-            case GIRAFFE:
-                string = "LEON";
-                break;
-            case SQUIRREL:
-                string = "LEON";
-                break;
-            case PENGUIN:
-                string = "LEON";
-                break;
-        }
-            return string;
-        }
-
-     */
-
 }

@@ -7,33 +7,18 @@ import java.util.*;
 public class Zoo implements IZoo{
 
     Map<Species, String> cages = new HashMap<Species, String>();
-    List<InhibitionLog> inhibitionLogs = new ArrayList<InhibitionLog>();
+    Logger logger = new Logger();
 
     @Override
     public void checkInAnimal(IAnimal animal) {
         if(cages.containsKey(animal.getSpecies())){
             System.out.println("Занято");
-
-            inhibitionLogs.add(new InhibitionLog.Builder().
-                    withInDate(new Date()).
-                    withName(animal.getName()).
-                    withSpecies(animal.getSpecies()).
-                    withResult("No success").
-                    build()
-            );
+            logger.addLog(animal, "No success");
         }
         else{
-
             cages.put(animal.getSpecies(), animal.getName());
             System.out.println("Заселили");
-
-            inhibitionLogs.add(new InhibitionLog.Builder().
-                    withInDate(new Date()).
-                    withName(animal.getName()).
-                    withSpecies(animal.getSpecies()).
-                    withResult("Success").
-                    build()
-            );
+            logger.addLog(animal, "Success");
         }
     }
 
@@ -42,34 +27,19 @@ public class Zoo implements IZoo{
         if(cages.containsValue(animal.getName())){
             System.out.println("Выселяем");
             cages.remove(animal.getSpecies());
-
-            inhibitionLogs.add(new InhibitionLog.Builder().
-                    withOutDate(new Date()).
-                    withName(animal.getName()).
-                    withSpecies(animal.getSpecies()).
-                    withResult("Success").
-                    build()
-            );
-
+            logger.addLog(animal, "Success");
         }
         else{
             //cages.put(animal.getSpecies(), animal.getName());
             System.out.println("Такого животного нет");
-
-            inhibitionLogs.add(new InhibitionLog.Builder().
-                    withOutDate(new Date()).
-                    withName(animal.getName()).
-                    withSpecies(animal.getSpecies()).
-                    withResult("No success").
-                    build()
-            );
+            logger.addLog(animal, "No success");
         }
     }
 
 
     @Override
     public List<InhibitionLog> getHistory() {
-        return inhibitionLogs;
+        return logger.getLogs();
     }
 
 
