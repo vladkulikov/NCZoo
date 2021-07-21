@@ -7,11 +7,21 @@ import java.util.Date;
 import java.util.List;
 
 public class Logger extends InhibitionLog{
-    List<InhibitionLog> inhibitionLogs = new ArrayList<InhibitionLog>();
+    List<InhibitionLog> inhibitionLogs = new ArrayList<>();
 
-    public void addLog(IAnimal animal, String result){
+    public void addLogIn(IAnimal animal, String result){
         inhibitionLogs.add(new InhibitionLog.Builder().
                 withInDate(new Date()).
+                withName(animal.getName()).
+                withSpecies(animal.getSpecies()).
+                withResult(result).
+                build()
+        );
+    }
+
+    public void addLogOut(IAnimal animal, String result){
+        inhibitionLogs.add(new InhibitionLog.Builder().
+                withOutDate(new Date()).
                 withName(animal.getName()).
                 withSpecies(animal.getSpecies()).
                 withResult(result).
