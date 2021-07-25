@@ -33,4 +33,8 @@ public class Cage implements ICage{
     public boolean isVacantCage() {
         return vacantCage;
     }
+
+    public void setVacantCage(boolean vacantCage) {
+        this.vacantCage = vacantCage;
+    }
 }

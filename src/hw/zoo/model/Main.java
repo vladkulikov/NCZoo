@@ -2,6 +2,9 @@ package hw.zoo.model;
 
 import hw.zoo.ParserCommand;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +13,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws IOException {
         List<Species> list = new ArrayList<Species>();
-        list = new Condition().isAvailableFor();
+        //list = new Condition().isAvailableFor();
         System.out.println("Типы команд:");
         System.out.println("check-in [species] [name] - позволяет поселить животное в клетку");
         System.out.println("check-out [species] [name] - позволяет выселить животное из клетки");
@@ -19,8 +22,7 @@ public class Main {
 
 
         System.out.println("Допустимые виды животных:");
-        list.forEach(System.out::println);
-
+        //list.forEach(System.out::println);
         ParserCommand parserCommand = new ParserCommand();
         parserCommand.getResult();
     }
